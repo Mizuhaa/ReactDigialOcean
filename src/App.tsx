@@ -10,14 +10,7 @@ export default function App() {
       <Instructions />
       <div className="wrapperAnimaux">
         {animals.map((animal) => (
-          <Animal
-            name={animal.name}
-            emoji={animal.emoji}
-            diet={animal.diet}
-            scientificName={animal.scientificName}
-            size={animal.size}
-            additional={animal.additional}
-          />
+          <Animal {...animal} />
         ))}
       </div>
     </>
