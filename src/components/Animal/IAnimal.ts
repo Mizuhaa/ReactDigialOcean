@@ -1,12 +1,12 @@
 import "../AnimalDetails/IAnimalDetails"
-import { IAnimalDetails } from "../AnimalDetails/IAnimalDetails";
 
 export interface IAnimal {
   name: string;
   size: number;
   emoji: string;
   additional?: IAnimalAdditional;
-  details?: IAnimalDetails
+  diet: string[];
+  scientificName: string;
 }
 
 export interface IAnimalAdditional {
