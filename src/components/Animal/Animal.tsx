@@ -14,13 +14,12 @@ function showAdditional(additional?: IAnimalAdditional) {
 
 export default function Animal(animal: IAnimal) {
   return (
-      <Card title="Animal">
+    <Card title="Animal" details={<AnimalDetails {...animal} />}>
       <h2>{animal.name}</h2>
       <h4>{animal.size}</h4>
       <button onClick={() => showAdditional(animal.additional)}>
         <span role="img">{animal.emoji}</span>
       </button>
-      <AnimalDetails { ...animal } />
-      </Card>
+    </Card>
   );
 }
