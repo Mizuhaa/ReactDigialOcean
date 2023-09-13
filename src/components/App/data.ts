@@ -2,14 +2,14 @@ export default [
     {
       name: 'Lion',
       scientificName: 'Panthero leo',
-      size: 140,
+      size: 142.21,
       diet: ['meat'],
       emoji: '🦁'
     },
     {
       name: 'Gorilla',
       scientificName: 'Gorilla beringei',
-      size: 205,
+      size: 202.10,
       emoji: '🦍',
       diet: ['plants', 'insects'],
       additional: {
@@ -19,7 +19,7 @@ export default [
     {
       name: 'Zebra',
       scientificName: 'Equus quagga',
-      size: 322,
+      size: 322.30,
       diet: ['plants'],
       emoji: '🦓',
       additional: {

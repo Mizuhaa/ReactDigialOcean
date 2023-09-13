@@ -22,8 +22,8 @@ export default function Animal(animal: IAnimal) {
       <button onClick={() => showAdditional(animal.additional)}>
         <span role="img">{animal.emoji}</span>
       </button>
-        <div>
-            <AnimalStockHandler animalName={animal.name}/>
+        <div className="col-span-3">
+            <AnimalStockHandler/>
         </div>
     </Card>
   );

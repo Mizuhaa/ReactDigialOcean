@@ -9,10 +9,10 @@ export default function Card({
 }) {
   return (
     <div className="flex flex-wrap Card">
-      <div className="grid grid-rows-3 grid-cols-3 divide-y-2 divide-slate-900 hover:divide-emerald-500">
+      <div className="grid grid-cols-3 divide-y-2 divide-emerald-300 hover:divide-emerald-700">
         <div className="text-3xl col-start-2 underline">{title}</div>
         <div className="text-2xl col-start-2">Details:</div>
-        <div className="col-start-1 col-span-3 grid grid-cols-3">
+        <div className="col-start-1 col-span-3 grid grid-cols-3 card">
           {details}
           {children}
         </div>
