@@ -9,7 +9,7 @@ export default function App() {
     <>
       <Welcome />
       <Instructions />
-      <div className="wrapperAnimaux">
+      <div className="flex flex-row justify-between px-5 text-center divide-x-2">
         {animals.map((animal) => (
           <Animal {...animal} />
         ))}

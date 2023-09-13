@@ -1,11 +1,9 @@
-import React from "react";
-import "./Instructions.css";
 import emoji from "./emoji.svg";
 
 const Instructions=()=> (
-    <div className="instructions">
+    <div className="bg-sky-900 max-w-md max-h-fit">
       <img alt="laughing crying emoji" src={emoji} />
-      <p>Click on an emoji to view the emoji name</p>
+      <p className="capitalize underline ">Click on an emoji to view the emoji name</p>
     </div>
   );
 
