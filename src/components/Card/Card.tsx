@@ -1,12 +1,18 @@
-import "./Card.css"
+import "./Card.css";
 
-export default function Card(children: React.ReactElement[] | React.ReactElement, title: string){
-    return(
-        <div className="card">
-            <div className="card-details">
-                <h2>{title}</h2>
-            </div>
-            {children}
-        </div>
-    )
+export default function Card({
+  children,
+  title,
+}: {
+  children: React.ReactElement[] | React.ReactElement;
+  title: string;
+}) {
+  return (
+    <div className="card">
+      <div className="card-details">
+        <h2>{title}</h2>
+      </div>
+      {children}
+    </div>
+  );
 }
