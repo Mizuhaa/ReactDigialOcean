@@ -6,7 +6,7 @@ import "./App.css"
 
 export default function App() {
   return (
-    <>
+    <div className="dark:bg-gray-900 dark:text-gray-50">
       <Welcome />
       <Instructions />
       <div className="flex flex-row justify-between px-5 text-center divide-x-2">
@@ -14,6 +14,6 @@ export default function App() {
           <Animal {...animal} />
         ))}
       </div>
-    </>
+    </div>
   );
 }
