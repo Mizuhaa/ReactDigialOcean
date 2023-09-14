@@ -1,7 +1,6 @@
 import AnimalDetails from "../AnimalDetails/AnimailDetails";
 import { IAnimal, IAnimalAdditional } from "./IAnimal";
 import Card from "../Card/Card";
-import AnimalStockHandler from "../AnimalStockHandler/AnimalStockHandler"
 
 function showAdditional(additional?: IAnimalAdditional) {
   if (additional != undefined) {
@@ -22,9 +21,6 @@ export default function Animal(animal: IAnimal) {
       <button onClick={() => showAdditional(animal.additional)}>
         <span role="img">{animal.emoji}</span>
       </button>
-        <div className="col-span-3">
-            <AnimalStockHandler/>
-        </div>
     </Card>
   );
 }
