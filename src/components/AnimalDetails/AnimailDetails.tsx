@@ -1,8 +1,8 @@
 import { convertFood } from "./AnimailDetailsHelper";
-import { IAnimal } from "../Animal/IAnimal";
+import { Animal } from "../../models";
 
-export default function AnimalDetails(animal: IAnimal) {
-  if (animal.diet != undefined && animal.scientificName != undefined) {
+export default function AnimalDetails({animal}: {animal: Animal}) {
+  if (animal.diet.length && animal.scientificName) {
     return (
       <div className="tests">
         <div>

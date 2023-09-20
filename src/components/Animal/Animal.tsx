@@ -1,8 +1,8 @@
 import AnimalDetails from "../AnimalDetails/AnimailDetails";
-import { IAnimal, IAnimalAdditional } from "./IAnimal";
+import { AnimalAdditional, Animal as IAnimal } from "../../models";
 import Card from "../Card/Card";
 
-function showAdditional(additional?: IAnimalAdditional) {
+function showAdditional(additional?: AnimalAdditional) {
   if (additional != undefined) {
     const alertInfo = Object.entries(additional)
       .map((informations) => `${informations[0]}: ${informations[1]}`)
@@ -11,9 +11,9 @@ function showAdditional(additional?: IAnimalAdditional) {
   }
 }
 
-export default function Animal(animal: IAnimal) {
+export default function Animal({ animal }: { animal: IAnimal }) {
   return (
-    <Card title="Animal" details={<AnimalDetails {...animal} />}>
+    <Card title="Animal" details={<AnimalDetails animal={animal} />}>
       <div>
         <p>{animal.name}</p>
         <p>{animal.size}kg</p>
