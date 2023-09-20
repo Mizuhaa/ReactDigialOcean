@@ -14,7 +14,7 @@ export const ZooProvider = ({ children }: { children: React.ReactElement | React
     const contextValue = useMemo(() => {
         return {
             animals,
-            setAnimals,
+            setAnimals
         };
     }, [animals]);
 
