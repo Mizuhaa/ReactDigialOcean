@@ -1,20 +1,18 @@
-import { IAnimal } from "../Animal/IAnimal";
+import { IAnimal } from "../Animal/Animal";
 
 export interface IZoo {
     name: string;
     animals: IAnimal[];
 }
 
-export function addToZoo(animals: IAnimal[], animal: IAnimal){
-    animals.push(animal)
-    return [...animals]
+export function addToZoo(animals: IAnimal[], animal: IAnimal) {
+    animals.push(animal);
+    return [...animals];
 }
 
-export function removeFromZoo(animals: IAnimal[], animal: IAnimal){
-    animals.splice(animals.indexOf(animal))
-    return [...animals]
+export function removeFromZoo(animals: IAnimal[], animal: IAnimal) {
+    animals.splice(animals.indexOf(animal));
+    return [...animals];
 }
 
-export function setAnimals(){
-
-}
+export function setAnimals() {}
