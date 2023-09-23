@@ -20,6 +20,7 @@ export default function App() {
       }}
     >
       <div className="dark:bg-gray-900 dark:text-gray-50">
+        <ZooNamePicker/>
         {/* <Welcome />
         <Instructions /> */}
         <div>
@@ -52,7 +53,6 @@ export default function App() {
             </div>
           ))}
         </div>
-        <ZooNamePicker/>
       </div>
     </ZooContext.Provider>
   );
