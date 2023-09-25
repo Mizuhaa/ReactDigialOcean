@@ -1,27 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useZooContext } from "../../Context/ZooContext";
 
 export default function ZooNamePicker() {
-  const { name, setName } = useZooContext();
+  const { setName } = useZooContext();
   const [alert, setAlert] = useState(false);
-  const validate = (event: { preventDefault: () => void }) => {
-    if (/\*/.test(name)) {
-      event.preventDefault();
-      setAlert(true);
-      return;
-    }
-    setAlert(false);
-  };
-
-  useEffect(() => {
-    const handleWindowClick = () => setAlert(false)
-    if(alert) {
-      window.addEventListener('click', handleWindowClick);
-    } else {
-      window.removeEventListener('click', handleWindowClick)
-    }
-    return () => window.removeEventListener('click', handleWindowClick);
-  }, [alert, setAlert]);
 
   return (
     <div className="wrapper">
@@ -53,15 +35,6 @@ export default function ZooNamePicker() {
               <span role="img" aria-label="not allowed">⛔️</span> *
             </div>
           }
-        </div>
-        <div>
-          <button
-            type="button"
-            className="bg-emerald-300 hover:bg-emerald-700 text-white font-bold py-2 px-4 rounded"
-            onClick={validate}
-          >
-            Save
-          </button>
         </div>
       </form>
     </div>

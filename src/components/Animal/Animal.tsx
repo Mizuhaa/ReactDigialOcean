@@ -13,8 +13,8 @@ function showAdditional(additional?: AnimalAdditional) {
 
 export default function Animal({ animal }: { animal: IAnimal }) {
   return (
-    <Card title="Animal" details={<AnimalDetails animal={animal} />}>
-      <div >
+    <Card title={animal.name} details={<AnimalDetails animal={animal} />}>
+      <div  >
         <p>{animal.name}</p>
         <p>{animal.size}kg</p>
       </div>

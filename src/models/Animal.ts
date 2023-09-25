@@ -5,6 +5,7 @@ export interface Animal {
     additional?: AnimalAdditional;
     diet: string[];
     scientificName: string;
+    picture: string;
 }
 
 export interface AnimalAdditional {

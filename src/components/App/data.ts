@@ -4,7 +4,8 @@ export default [
       scientificName: 'Panthero leo',
       size: 142.21,
       diet: ['meat'],
-      emoji: '🦁'
+      emoji: '🦁',
+      picture: 'src/components/App/lion.jpg'
     },
     {
       name: 'Gorilla',
@@ -14,7 +15,8 @@ export default [
       diet: ['plants', 'insects'],
       additional: {
         notes: 'This is the eastern gorilla. There is also a western gorilla that is a different species.'
-      }
+      },
+      picture: 'src/components/App/gorilla.jpg'
     },
     {
       name: 'Zebra',
@@ -25,6 +27,7 @@ export default [
       additional: {
         notes: 'There are three different species of zebra.',
         link: 'https://en.wikipedia.org/wiki/Zebra'
-      }
+      },
+      picture: 'src/components/App/zebra.jpg'
     }
   ]
