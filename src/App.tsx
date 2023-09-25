@@ -6,6 +6,7 @@ import AnimalStockHandler from "./components/AnimalStockHandler/AnimalStockHandl
 import { useState, useEffect } from "react";
 import { ZooContext } from "./Context/ZooContext";
 import ZooNamePicker from "./components/ZooNamePicker/ZooNamePicker";
+import ZooVisitorForm from "./components/ZooVisitorForm/ZooVisitorForm";
 
 export default function App() {
   const [animals, setAnimals] = useState<IAnimal[]>([]);
@@ -32,7 +33,7 @@ export default function App() {
         setName
       }}
     >
-      <div className="">
+      <div className="dark:bg-gray-900 dark:text-gray-50">
         <ZooNamePicker />
         {/* <Welcome />
         <Instructions /> */}
@@ -55,21 +56,24 @@ export default function App() {
             w-auto h-auto
             border-2 border-red-400
             `}>
-              <img src={animal.picture} className="-z-10 absolute"/>
-              <Animal animal={animal}/>
-              <AnimalStockHandler animal={animal}>
-                <button
-                  className="bg-emerald-300 hover:bg-emerald-700 text-white font-bold py-2 px-4 rounded"
-                  onClick={() => {
-                    setAnimals([...animals, animal]);
-                  }}
-                >
-                  Add{" "}
-                </button>
-              </AnimalStockHandler>
+              <div className="">
+                <Animal animal={animal} />
+                <AnimalStockHandler animal={animal}>
+                  <button
+                    className="bg-emerald-300 hover:bg-emerald-700 text-white font-bold py-2 px-4 rounded"
+                    onClick={() => {
+                      setAnimals([...animals, animal]);
+                    }}
+                  >
+                    Add{" "}
+                  </button>
+                </AnimalStockHandler>
+              </div>
+              <img src={animal.picture} className="-z-10" />
             </div>
           ))}
         </div>
+        <ZooVisitorForm />
       </div>
     </ZooContext.Provider>
   );
