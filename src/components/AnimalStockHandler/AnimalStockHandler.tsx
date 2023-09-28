@@ -15,4 +15,9 @@ export default function AnimalStockHandler({ children, animal }: { children: Rea
       </div>
     );
   }
+  else{
+    return (
+      <div></div>
+    )
+  }
 }
