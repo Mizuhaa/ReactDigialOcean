@@ -18,7 +18,7 @@ export default function Animal({ animal }: { animal: IAnimal }) {
         <p>{animal.name}</p>
         <p>{animal.size}kg</p>
       </div>
-      <button onClick={() => showAdditional(animal.additional)}>
+      <button onSubmit={e => e.preventDefault()} onClick={() => showAdditional(animal.additional)}>
         <span role="img">{animal.emoji}</span>
       </button>
     </Card>

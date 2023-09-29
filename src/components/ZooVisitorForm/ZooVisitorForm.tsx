@@ -73,7 +73,7 @@ export default function ZooVisitorForm() {
       <form onSubmit={handleSubmit}>
         <fieldset className="my-5" disabled={submitting}>
           <label>
-            <p>Avis</p>
+            Avis
             <input
               name="avis"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
@@ -87,7 +87,7 @@ export default function ZooVisitorForm() {
         </fieldset>
         <fieldset disabled={submitting}>
           <label>
-            <p>De quel pays venez-vous ?</p>
+            De quel pays venez-vous ?
             <select
               name="paysSelector"
               onChange={handleChange}
@@ -103,7 +103,7 @@ export default function ZooVisitorForm() {
             </select>
           </label>
           <label>
-            <p>Combien étiez-vous?</p>
+            Combien étiez-vous?
             <input
               type="number"
               name="count"
@@ -117,7 +117,7 @@ export default function ZooVisitorForm() {
             />
           </label>
           <label className="flex flex-row py-3 space-x-3">
-            <p>Envoyez un like</p>
+            Envoyez un like
             <input
               type="checkbox"
               name="checkBoxLike"
@@ -127,7 +127,7 @@ export default function ZooVisitorForm() {
           </label>
         </fieldset>
         <button
-          type="submit"
+          type="button"
           className="text-2xl text-emerald-800 dark:text-emerald-50 cursor-pointer border border-emerald-300 hover:border-red-800"
           disabled={submitting || !formData.avis || !formData.paysSelector || !formData.count }
         >
