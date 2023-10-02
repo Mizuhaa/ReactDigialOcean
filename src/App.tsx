@@ -60,6 +60,7 @@ export default function App() {
         <div className="grid grid-cols-3 justify-between px-5 text-center divide-x-2 basis-3">
           {animals.map((animal) => (
             <div className={`bg-[url("${animal.picture}")] m-0.5`}>
+              {/* <img src={animal.picture}/> */}
               <div className="bg-gradient-to-b from-gray-50[0.67] to-gray-400[0.67]"
               // className={`bg-[url("${animal.picture}")]`}
               //  className={`bg-[url("src/components/App/rat.jpg")]`}
