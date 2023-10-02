@@ -39,7 +39,7 @@ export default function App() {
         setName,
       }}
     >
-      <div className="dark:bg-gray-900 dark:text-gray-50">
+      <div className="">
         <button
           type="submit"
           onClick={() => setAnimals([...animals, defaultSpringbok])}
@@ -59,28 +59,10 @@ export default function App() {
         <h1 className="capitalize underline text-5xl p-5">Gestion du zoo</h1>
         <div className="grid grid-cols-3 justify-between px-5 text-center divide-x-2 basis-3">
           {animals.map((animal) => (
-            <div className={`bg-[url("${animal.picture}")] m-0.5`}>
-              {/* <img src={animal.picture}/> */}
-              <div className="bg-gradient-to-b from-gray-50[0.67] to-gray-400[0.67]"
-              // className={`bg-[url("${animal.picture}")]`}
-              //  className={`bg-[url("src/components/App/rat.jpg")]`}
-              >
-                <div className="relative">
-                  <Animal animal={animal} />
-                  <AnimalStockHandler animal={animal}>
-                    <button
-                      type="submit"
-                      className="bg-emerald-300 hover:bg-emerald-700 text-white font-bold py-2 px-4 rounded"
-                      onClick={() => {
-                        setAnimals([...animals, animal]);
-                      }}
-                    >
-                      Add{" "}
-                    </button>
-                  </AnimalStockHandler>
-                </div>
+            <div className="">
+                <Animal animal={animal} />
+                <AnimalStockHandler animal={animal} />
               </div>
-            </div>
           ))}
         </div>
         <ZooVisitorForm />

@@ -1,23 +1,47 @@
 import { Animal } from "../../models";
 import { useZooContext } from "../../Context/ZooContext";
 
-
-export default function AnimalStockHandler({ children, animal }: { children: React.ReactElement[] | React.ReactElement; animal: Animal; }) {
-  const { animals } = useZooContext();
+export default function AnimalStockHandler({
+  animal,
+}: {
+  animal: Animal;
+}) {
+  const { animals, setAnimals } = useZooContext();
   if (animal.diet != undefined && animal.scientificName != undefined) {
     return (
-      <div>
-        <p>Currently {animals.filter(function (element) { return element.name === animal.name }).length} {animal.name} in the zoo</p>
-        <p>Totaling {animals.filter(function (element) { return element.name === animal.name }).reduce((sum, current) => sum + current.size, 0)}kg</p>
-        <div className="space-x-5">
-          {children}
+      <div className="text-white flex flex-wrap flex-col">
+        <a>
+          Currently{" "}
+          {
+            animals.filter(function (element) {
+              return element.name === animal.name;
+            }).length
+          }{" "}
+          {animal.name} in the zoo
+        </a>
+        <a>
+          Totaling{" "}
+          {animals
+            .filter(function (element) {
+              return element.name === animal.name;
+            })
+            .reduce((sum, current) => sum + current.size, 0)}
+          kg
+        </a>
+        <div className="">
+          <button
+            type="submit"
+            className="bg-emerald-300 hover:bg-emerald-700 text-white font-bold py-2 px-4 rounded"
+            onClick={() => {
+              setAnimals([...animals, animal]);
+            }}
+          >
+            Add{" "}
+          </button>
         </div>
       </div>
     );
-  }
-  else{
-    return (
-      <div></div>
-    )
+  } else {
+    return <div></div>;
   }
 }

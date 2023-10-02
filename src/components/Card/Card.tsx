@@ -8,10 +8,10 @@ export default function Card({
   title: string;
 }) {
   return (
-    <div className="flex flex-wrap Card">
-      <div className="grid grid-cols-3 divide-y-2 divide-emerald-300 hover:divide-emerald-700">
-        <div className="text-3xl col-start-2 font-montserrat font-extrabold">{title}</div>
-        <div className="col-start-1 col-span-3 grid grid-cols-3 card divide-x-2 divide-emerald-300 hover:divide-emerald-700 ">
+    <div className="flex flex-wrap Card relative m-0.5 w-full h-full object-contain bg-gradient-to-b from-gray-900/75 to-gray-400/10">
+      <div className="">
+        <div className="text-4xl font-montserrat font-extrabold text-white pb-5">{title}</div>
+        <div className="col-start-1 col-span-3 grid grid-cols-3 text-white ">
           {details}
           {children}
         </div>

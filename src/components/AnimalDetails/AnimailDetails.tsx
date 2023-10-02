@@ -4,7 +4,7 @@ import { Animal } from "../../models";
 export default function AnimalDetails({animal}: {animal: Animal}) {
   if (animal.diet.length && animal.scientificName) {
     return (
-      <div className="tests">
+      <div className="">
         <div>
           <p>Scientific name : {animal.scientificName}</p>
           <p>Diet : {animal.diet.map((food) => convertFood(food)).join(" ")}</p>
