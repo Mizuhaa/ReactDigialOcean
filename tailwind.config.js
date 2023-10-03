@@ -5,8 +5,10 @@ export const theme = {
       sans: ['Graphik', 'sans-serif'],
       serif: ['Merriweather', 'serif'],
       montserrat: ['Montserrat'],
-    },
+    }
   },
 };
+
+export const darkMode = "class";
 
 export const plugins = [];

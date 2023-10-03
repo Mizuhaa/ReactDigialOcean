@@ -8,10 +8,10 @@ export default function Card({
   title: string;
 }) {
   return (
-    <div className="flex flex-wrap Card relative m-0.5 w-full h-full object-contain bg-gradient-to-b from-gray-900/75 to-gray-400/10">
+    <div className="">
       <div className="">
-        <div className="text-4xl font-montserrat font-extrabold text-white pb-5">{title}</div>
-        <div className="col-start-1 col-span-3 grid grid-cols-3 text-white ">
+        <div className="text-4xl font-montserrat font-extrabold  pb-5 dark:text-white text-black">{title}</div>
+        <div className="grid grid-cols-3 dark:text-white text-black  ">
           {details}
           {children}
         </div>

@@ -15,12 +15,6 @@ export default function Animal({ animal }: { animal: IAnimal }) {
   return (
     <div className="">
       <Card title={animal.name} details={<AnimalDetails animal={animal} />}>
-        <div className="w-full h-full absolute">
-          <img
-            className="relative w-full h-full -z-10 object-cover"
-            src={animal.picture}
-          />
-        </div>
         <div>
           <p>{animal.name}</p>
           <p>{animal.size}kg</p>
