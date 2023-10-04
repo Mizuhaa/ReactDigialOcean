@@ -10,24 +10,6 @@ export default function AnimalStockHandler({
   if (animal.diet != undefined && animal.scientificName != undefined) {
     return (
       <div className="text-white flex flex-wrap flex-col">
-        <a>
-          Currently{" "}
-          {
-            animals.filter(function (element) {
-              return element.name === animal.name;
-            }).length
-          }{" "}
-          {animal.name} in the zoo
-        </a>
-        <a>
-          Totaling{" "}
-          {animals
-            .filter(function (element) {
-              return element.name === animal.name;
-            })
-            .reduce((sum, current) => sum + current.size, 0)}
-          kg
-        </a>
         <div className="">
           <button
             type="submit"

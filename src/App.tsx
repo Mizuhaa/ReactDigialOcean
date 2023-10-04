@@ -11,10 +11,11 @@ import { ThemeContext } from "./Context/ThemeContext/ThemeContext";
 import ThemePicker from "./components/ThemePicker/ThemePicker";
 import Header from "./components/Header/Header";
 import ZooList from "./components/ZooList/ZooList";
+import Footer from "./components/Footer/Footer";
 
 export default function App() {
   useEffect(() => {
-    getAnimalInformation().then((data) => setAnimals(data));
+    getAnimalInformation().then((data) => setDefaultAnimals(data));
   }, []);
 
   if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -24,6 +25,7 @@ export default function App() {
   }
 
   const [animals, setAnimals] = useState<IAnimal[]>([]);
+  const [defaultAnimals, setDefaultAnimals] = useState<IAnimal[]>([]);
   const [theme, setTheme] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [alert, setAlert] = useState(false);
@@ -53,13 +55,13 @@ export default function App() {
         }}>
         <Header children={<ThemePicker />} />
 
-        <div className="dark:bg-slate-600">
+        <div className="dark:bg-slate-600 pb-96">
           <ZooNamePicker />
           <div>
             <h1 className="underline text-5xl">
               Liste des animaux du zoo {name} :
             </h1>
-            <ZooList/>
+            <ZooList />
             {/* <div className="p-5 text-2xl">
               {animals.map((animal) => animal.name).join(", ")}
               {<p>Total animals in the zoo : {animals.length}</p>}
@@ -67,7 +69,7 @@ export default function App() {
           </div>
           <h1 className="capitalize underline text-5xl p-5">Gestion du zoo</h1>
           <div className="grid grid-cols-3 px-5 text-center">
-            {animals.map((animal) => (
+            {defaultAnimals.map((animal) => (
               <div className="relative m-0.5">
                 <div className="bg-gradient-to-b from-gray-900/75 to-gray-100/10 absolute z-10 w-full h-full" />
                 <img
@@ -81,8 +83,11 @@ export default function App() {
               </div>
             ))}
           </div>
-          <ZooVisitorForm />
         </div>
+
+        <Footer>
+          <ZooVisitorForm />
+        </Footer>
       </ThemeContext.Provider>
     </ZooContext.Provider>
   );

@@ -33,7 +33,10 @@ export default function ZooVisitorForm() {
   const [formData, setFormData] = useReducer(formReducer, initialFormData);
   const [submitting, setSubmitting] = useState(false);
 
+  console.log(submitting || !formData.avis || !formData.paysSelector || !formData.count)
+
   const handleSubmit = (event: FormEvent) => {
+    console.log("Handling submit")
     event.preventDefault();
     setSubmitting(true);
 
@@ -48,6 +51,7 @@ export default function ZooVisitorForm() {
   const handleChange = (
     event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>
   ) => {
+    console.log("Handling change...")
     const { name, value, type } = event.target;
     const isCheckbox = type === "checkbox";
     setFormData({
@@ -56,7 +60,7 @@ export default function ZooVisitorForm() {
     });
 };
   return (
-    <div className="p-5">
+    <div className="w-full h-full">
       <h1>Qu'avez vous pensé du zoo?</h1>
       {submitting && (
         <div>
@@ -127,7 +131,7 @@ export default function ZooVisitorForm() {
           </label>
         </fieldset>
         <button
-          type="button"
+          type="submit"
           className="text-2xl text-emerald-800 dark:text-emerald-50 cursor-pointer border border-emerald-300 hover:border-red-800"
           disabled={submitting || !formData.avis || !formData.paysSelector || !formData.count }
         >
