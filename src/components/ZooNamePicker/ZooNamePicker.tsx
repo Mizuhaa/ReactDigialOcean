@@ -7,13 +7,15 @@ export default function ZooNamePicker() {
 
   return (
     <div className="wrapper">
-      <h1 className="text-5xl p-5">Choisissez le nom du Zoo</h1>
-      <form className="p-3 space-y-3">
+      <h1 className="text-3xl p-5 text-gray-600 dark:text-white">Choisissez le nom du Zoo</h1>
+      <form>
         <label>
           Name:
           <input
             name="name"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-emerald-800 dark:border-emerald-600 dark:placeholder-emerald-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="p-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
+            focus:ring-blue-500 focus:border-blue-500 block 
+            dark:bg-emerald-800 dark:border-emerald-600 dark:placeholder-emerald-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             autoComplete="off"
             onChange={(event) => setName(event.target.value)}
             onFocus={() => setAlert(true)}
