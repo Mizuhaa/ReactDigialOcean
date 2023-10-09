@@ -9,7 +9,7 @@ interface FormData {
 
 const initialFormData: FormData = {
   avis: "",
-  count: undefined,
+  count: 1,
   paysSelector: "",
   checkBoxLike: false,
 };
@@ -33,10 +33,8 @@ export default function ZooVisitorForm() {
   const [formData, setFormData] = useReducer(formReducer, initialFormData);
   const [submitting, setSubmitting] = useState(false);
 
-  console.log(submitting || !formData.avis || !formData.paysSelector || !formData.count)
-
   const handleSubmit = (event: FormEvent) => {
-    console.log("Handling submit")
+    console.log("Handling submit");
     event.preventDefault();
     setSubmitting(true);
 
@@ -51,28 +49,26 @@ export default function ZooVisitorForm() {
   const handleChange = (
     event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>
   ) => {
-    console.log("Handling change...")
     const { name, value, type } = event.target;
+
     const isCheckbox = type === "checkbox";
     setFormData({
       name,
-      value: isCheckbox ? (event.target as HTMLInputElement).checked.toString() : value,
+      value: isCheckbox
+        ? (event.target as HTMLInputElement).checked.toString()
+        : value,
     });
   };
+
   return (
     <div className="w-full h-full text-center">
       <div className="inline-block text-left">
-        <h1 className="text-2xl font-montserrat text-white">Formulaire post-visite du zoo</h1>
+        <h1 className="text-2xl font-montserrat text-white">
+          Formulaire post-visite du zoo
+        </h1>
         {submitting && (
-          <div>
-            Envoi du formulaire...
-            <ul>
-              {Object.entries(formData).map(([name, value]) => (
-                <li key={name}>
-                  <strong>{name}</strong>:{value.toString()}
-                </li>
-              ))}
-            </ul>
+          <div className="text-2xl font-montserrat text-white">
+            Envoi en cours... Merci de votre réponse 😊
           </div>
         )}
         <form onSubmit={handleSubmit}>
@@ -104,6 +100,7 @@ export default function ZooVisitorForm() {
             </label>
             <label>
               <input
+                name="count"
                 className="bg-transparent text-white w-full px-4 py-2 pr-8 mb-2 
               border-b border-white focus:border-emerald-300 focus:outline-none "
                 placeholder="Combien étiez-vous ?"
@@ -130,7 +127,12 @@ export default function ZooVisitorForm() {
             border border-whhite hover:border-emerald-300
             text-2xl text-emerald-800 dark:text-emerald-50
             bg-emerald-500 hover:bg-emerald-700 px-1 py-2"
-              disabled={submitting || !formData.avis || !formData.paysSelector || !formData.count}
+              disabled={
+                submitting ||
+                !formData.avis ||
+                !formData.paysSelector ||
+                !formData.count
+              }
             >
               Valider
             </button>

@@ -5,7 +5,8 @@ export const theme = {
       sans: ['Graphik', 'sans-serif'],
       serif: ['Merriweather', 'serif'],
       montserrat: ['Montserrat'],
-    }
+    },
+    display: ["group-hover"]
   },
 };
 

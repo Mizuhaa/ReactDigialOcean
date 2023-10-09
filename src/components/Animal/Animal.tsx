@@ -11,21 +11,36 @@ function showAdditional(additional?: AnimalAdditional) {
   }
 }
 
-export default function Animal({ animal }: { animal: IAnimal }) {
+export default function Animal({
+  animal,
+  children,
+}: {
+  animal: IAnimal;
+  children: React.ReactElement[] | React.ReactElement;
+}) {
   return (
-    <div className="">
-      <Card title={animal.name} details={<AnimalDetails animal={animal} />}>
-        <div>
-          <p>{animal.name}</p>
-          <p>{animal.size}kg</p>
-        </div>
-        <button
-          onSubmit={(e) => e.preventDefault()}
-          onClick={() => showAdditional(animal.additional)}
-        >
-          <span role="img">{animal.emoji}</span>
-        </button>
-      </Card>
+    <div className="relative">
+      <div className="absolute">
+        <Card title={animal.name} details={<AnimalDetails animal={animal} />}>
+          <div>
+            <div>
+              <p>{animal.name}</p>
+              <p>{animal.size}kg</p>
+            </div>
+            <button
+              onSubmit={(e) => e.preventDefault()}
+              onClick={() => showAdditional(animal.additional)}
+            >
+              <span role="img">{animal.emoji}</span>
+            </button>
+            {children}
+          </div>
+        </Card>
+      </div>
+      <img
+        className="absolute w-full h-full object-cover"
+        src={animal.picture}
+      />
     </div>
   );
 }

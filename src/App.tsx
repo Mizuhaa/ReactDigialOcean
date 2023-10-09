@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { ZooContext } from "./Context/ZooContext";
 import ZooNamePicker from "./components/ZooNamePicker/ZooNamePicker";
 import ZooVisitorForm from "./components/ZooVisitorForm/ZooVisitorForm";
-import { getAnimalInformation } from "./components/Animal/AnimalService";
+import { getAnimalsInformation } from "./components/Animal/AnimalService";
 import { ThemeContext } from "./Context/ThemeContext/ThemeContext";
 import ThemePicker from "./components/ThemePicker/ThemePicker";
 import Header from "./components/Header/Header";
@@ -15,13 +15,17 @@ import Footer from "./components/Footer/Footer";
 
 export default function App() {
   useEffect(() => {
-    getAnimalInformation().then((data) => setDefaultAnimals(data));
+    getAnimalsInformation().then((data) => setDefaultAnimals(data));
   }, []);
 
-  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    document.documentElement.classList.add('dark')
+  if (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    document.documentElement.classList.add("dark");
   } else {
-    document.documentElement.classList.remove('dark')
+    document.documentElement.classList.remove("dark");
   }
 
   const [animals, setAnimals] = useState<IAnimal[]>([]);
@@ -29,6 +33,7 @@ export default function App() {
   const [theme, setTheme] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [alert, setAlert] = useState(false);
+  const [animalSpotlightName, setSpotlightAnimalName] = useState<string>("");
 
   useEffect(() => {
     const handleWindowClick = () => setAlert(false);
@@ -47,12 +52,16 @@ export default function App() {
         setAnimals,
         name,
         setName,
+        animalSpotlightName,
+        setSpotlightAnimalName,
       }}
     >
       <ThemeContext.Provider
         value={{
-          theme, setTheme
-        }}>
+          theme,
+          setTheme,
+        }}
+      >
         <Header children={<ThemePicker />} />
 
         <div className="dark:bg-slate-600 pb-96">
@@ -62,23 +71,20 @@ export default function App() {
               Liste des animaux du zoo {name} :
             </h1>
             <ZooList />
-            {/* <div className="p-5 text-2xl">
-              {animals.map((animal) => animal.name).join(", ")}
-              {<p>Total animals in the zoo : {animals.length}</p>}
-            </div> */}
           </div>
           <h1 className="capitalize underline text-5xl p-5">Gestion du zoo</h1>
           <div className="grid grid-cols-3 px-5 text-center">
             {defaultAnimals.map((animal) => (
               <div className="relative m-0.5">
                 <div className="bg-gradient-to-b from-gray-900/75 to-gray-100/10 absolute z-10 w-full h-full" />
-                <img
+                {/* <img
                   className="absolute w-full h-full object-cover"
                   src={animal.picture}
-                />
+                /> */}
                 <div className="relative z-10">
-                  <Animal animal={animal} />
-                  <AnimalStockHandler animal={animal} />
+                  <Animal animal={animal}>
+                    <AnimalStockHandler animal={animal} />
+                  </Animal>
                 </div>
               </div>
             ))}

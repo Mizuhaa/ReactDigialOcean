@@ -15,11 +15,23 @@ export const defaultSpringbok = {
   },
 }
 
-export async function getAnimalInformation() : Promise<IAnimal[]> {
+const allAnimals = [...data, defaultSpringbok]
+
+export async function getAnimalsInformation() : Promise<IAnimal[]> {
   return new Promise<IAnimal[]>((resolve) => {
     setTimeout(() => {
       resolve(
-        [...data, defaultSpringbok]
+        allAnimals
+      );
+    }, 1500);
+  });
+}
+
+export async function getAnimalInformation(name: string) : Promise<IAnimal | undefined> {
+  return new Promise<IAnimal | undefined>((resolve) => {
+    setTimeout(() => {
+      resolve(
+        allAnimals.find((animal) => animal.name === name)
       );
     }, 1500);
   });
