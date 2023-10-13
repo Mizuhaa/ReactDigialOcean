@@ -19,7 +19,7 @@ export default function Animal({
   children: React.ReactElement[] | React.ReactElement;
 }) {
   return (
-    <div className="relative">
+    <div className="relative h-full w-full">
       <div className="absolute">
         <Card title={animal.name} details={<AnimalDetails animal={animal} />}>
           <div>
@@ -37,10 +37,12 @@ export default function Animal({
           </div>
         </Card>
       </div>
+      <div className="w-full bg-fuchsia-600 absolute z-40">
       <img
-        className="absolute w-full h-full object-cover"
-        src={animal.picture}
+        className="w-full h-full"
+        // src={animal.picture}
       />
+      </div>
     </div>
   );
 }
