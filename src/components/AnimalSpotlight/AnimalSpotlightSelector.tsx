@@ -7,6 +7,7 @@ export default function AnimalSpotlightSelector({
   animalName: string;
 }) {
   const { setSpotlightAnimalName } = useZooContext();
+
   return (
     <div>
       <svg

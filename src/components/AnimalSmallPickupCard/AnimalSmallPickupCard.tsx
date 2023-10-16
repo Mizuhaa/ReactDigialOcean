@@ -6,7 +6,7 @@ export default function AnimalSmallPickupCard({ animal, children }: {
     children: React.ReactElement[] | React.ReactElement;
 }) {
     return (
-        <div className="m-0.5 w-full h-full">
+        <div className="m-0.5 w-full h-full max-h-[15rem] min-h-[5rem] max-w-[15rem] min-w-[5rem] aspect-square">
             <div className="w-full h-full relative">
                 <img src={animal.picture} className="absolute w-full h-full object-cover" />
                 <AnimalSpotlightSelector animalName={animal.name}/>

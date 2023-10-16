@@ -10,14 +10,20 @@ export default function ZooList() {
   const [defaultAnimals, setDefaultAnimals] = useState<IAnimal[]>([]);
 
   useEffect(() => {
-    getAnimalsInformation().then((data) => setDefaultAnimals(data));
+    let mounted = true;
+    getAnimalsInformation().then((data) => {
+      if (mounted) {
+        setDefaultAnimals(data)
+      }
+    });
+    return () => { mounted = false }
   }, []);
 
   return (
-    <div className="grid grid-cols-4">
-      <div className="grid grid-cols-8 col-span-3">
+    <div className="flex flex-row border">
+      <div className="grid grid-cols-5">
         {defaultAnimals.map((animal) => (
-          <div className="m-0.5 aspect-square">
+          <div className="border">
             <AnimalSmallPickupCard animal={animal}>
               <div className="z-10 text-xl font-montserrat font-bold pb-5 text-white">
                 <p>
@@ -33,8 +39,8 @@ export default function ZooList() {
           </div>
         ))}
       </div>
-      <div className="w-full h-full">
-        <AnimalSpotlight/>
+      <div className="basis-1/3 h-full w-full relative border border-red-500">
+        <AnimalSpotlight />
       </div>
     </div>
   );

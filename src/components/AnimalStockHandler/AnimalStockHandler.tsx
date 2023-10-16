@@ -9,7 +9,7 @@ export default function AnimalStockHandler({
   const { animals, setAnimals } = useZooContext();
   if (animal.diet != undefined && animal.scientificName != undefined) {
     return (
-      <div className="text-white flex flex-wrap flex-col">
+      <div className="text-white text-center">
         <div className="">
           <button
             type="submit"

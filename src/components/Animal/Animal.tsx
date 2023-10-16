@@ -16,11 +16,13 @@ export default function Animal({
   children,
 }: {
   animal: IAnimal;
-  children: React.ReactElement[] | React.ReactElement;
+  children?: React.ReactElement[] | React.ReactElement;
 }) {
   return (
     <div className="relative h-full w-full">
-      <div className="absolute">
+      <div className=" w-full h-full absolute
+      bg-gradient-to-b from-gray-600/75 to-gray-100/10 dark:bg-gradient-to-b dark:from-gray-900/75 dark:to-gray-100/10 " />
+      <div className="absolute h-full grid-flow-row grid">
         <Card title={animal.name} details={<AnimalDetails animal={animal} />}>
           <div>
             <div>
@@ -33,15 +35,17 @@ export default function Animal({
             >
               <span role="img">{animal.emoji}</span>
             </button>
-            {children}
           </div>
         </Card>
+        <div>
+          {children}
+        </div>
       </div>
-      <div className="w-full bg-fuchsia-600 absolute z-40">
-      <img
-        className="w-full h-full"
-        // src={animal.picture}
-      />
+      <div className="w-full h-full object-cover">
+        <img
+          className="w-full h-full object-cover"
+          src={animal.picture}
+        />
       </div>
     </div>
   );

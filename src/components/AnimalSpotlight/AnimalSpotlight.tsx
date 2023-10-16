@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useReducer } from "react";
 import { getAnimalInformation } from "../Animal/AnimalService";
 import { Animal as IAnimal } from "../../models";
 import Animal from "../Animal/Animal";
@@ -6,7 +6,8 @@ import { useZooContext } from "../../Context/ZooContext";
 
 export default function AnimalSpotlight() {
   const [animalSpotlight, setAnimalSpotlight] = useState<IAnimal>();
-  const {animalSpotlightName} = useZooContext()
+  const { animalSpotlightName } = useZooContext()
+  const [show, toggle] = useReducer(state => !state, true)
 
   useEffect(() => {
     getAnimalInformation(animalSpotlightName).then((data) => setAnimalSpotlight(data));
@@ -14,11 +15,16 @@ export default function AnimalSpotlight() {
 
   if (animalSpotlight !== undefined) {
     return (
-      <div>
-        <Animal animal={animalSpotlight} />
+      <div className="relative h-full w-full">
+      <button onClick={toggle}>{show && "Cacher"}{!show && "Afficher"} la mise en vedette</button>
+        {show &&
+          <div className="relative h-full w-full">
+            <Animal animal={animalSpotlight} />
+          </div>
+        }
       </div>
     );
   } else {
-    return <div>No animal in the spotlight... yet!</div>;
+    return <div>Pas d'animal en vedette... pour l'instant!</div>;
   }
 }

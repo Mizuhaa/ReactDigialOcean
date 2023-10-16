@@ -72,7 +72,7 @@ export default function ZooVisitorForm() {
           </div>
         )}
         <form onSubmit={handleSubmit}>
-          <fieldset className="mt-5" disabled={submitting}>
+          <fieldset className="mt-5 grid gap-y-2" disabled={submitting}>
             <label>
               <input
                 name="avis"
@@ -98,7 +98,8 @@ export default function ZooVisitorForm() {
                 <option value="italy">Italie</option>
               </select>
             </label>
-            <label>
+            <label className="grid grid-flow-col">
+              <p className="text-white">Combien étiez-vous ?</p>
               <input
                 name="count"
                 className="bg-transparent text-white w-full px-4 py-2 pr-8 mb-2 
