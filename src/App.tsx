@@ -75,13 +75,13 @@ export default function App() {
           <h1 className="capitalize underline text-5xl p-5">Gestion du zoo</h1>
           <div className="grid grid-cols-5 px-5 text-center">
             {defaultAnimals.map((animal) => (
-              <div className="relative m-0.5 h-full aspect-square">
-                {/* <div className="bg-gradient-to-b from-gray-900/75 to-gray-100/10 absolute z-10 w-full h-full" /> */}
+              <div className="relative m-0.5 h-full">
+                <div className="bg-gradient-to-b from-gray-900/75 to-gray-100/10 absolute z-10 w-full h-full" />
                 {/* <img
                   className="absolute w-full h-full object-cover"
                   src={animal.picture}
                 /> */}
-                <div className="relative z-10">
+                <div className="relative z-10 h-full w-full">
                   <Animal animal={animal}>
                     <AnimalStockHandler animal={animal} />
                   </Animal>
